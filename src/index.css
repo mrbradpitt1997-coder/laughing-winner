@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Corporate Business Development & Investment Consultancy Design System
+All colors MUST be HSL. Professional tech-forward aesthetic.
+*/
+
+@layer base {
+  :root {
+    /* Base colors - Pure white with black text */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    /* Card system - White surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    /* Interactive elements */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    /* Primary - Black for emphasis */
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 0% 20%;
+
+    /* Secondary - Subtle gray accent */
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 0%;
+    --secondary-glow: 0 0% 85%;
+
+    /* Muted elements */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+
+    /* Accent - Cyan/turquoise for dots and highlights */
+    --accent: 180 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    /* Status colors */
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 120 60% 50%;
+    --warning: 35 85% 55%;
+
+    /* Borders and inputs */
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 0 0% 0%;
+
+    /* Design system extensions */
+    --radius: 0.75rem;
+    
+    /* Minimal gradients for white theme */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--foreground)), hsl(0 0% 20%));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--muted)), hsl(var(--secondary)));
+    --gradient-hero: transparent;
+    --gradient-surface: hsl(var(--background));
+    
+    /* Subtle shadows for white background */
+    --shadow-corporate: 0 4px 20px -2px hsl(0 0% 0% / 0.08);
+    --shadow-elevated: 0 10px 40px -5px hsl(0 0% 0% / 0.12);
+    --shadow-glow: 0 0 30px hsl(var(--accent) / 0.15);
+    
+    /* Professional transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4rem; /* Account for fixed header */
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 20% 30%, hsl(180 100% 50% / 0.15) 0%, transparent 2%),
+      radial-gradient(circle at 60% 70%, hsl(180 100% 60% / 0.12) 0%, transparent 2%),
+      radial-gradient(circle at 80% 20%, hsl(180 100% 55% / 0.1) 0%, transparent 2%),
+      radial-gradient(circle at 30% 80%, hsl(180 100% 50% / 0.13) 0%, transparent 2%),
+      radial-gradient(circle at 50% 50%, hsl(180 100% 55% / 0.08) 0%, transparent 2%);
+    background-size: 40px 40px, 60px 60px, 50px 50px, 55px 55px, 45px 45px;
+    background-position: 0 0, 20px 20px, 35px 10px, 10px 30px, 25px 25px;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+@layer components {
+  /* White theme component variants */
+  .hero-gradient {
+    background: transparent;
+  }
+  
+  .surface-gradient {
+    background: hsl(var(--background));
+  }
+  
+  .colored-dots-bg {
+    position: relative;
+    background: hsl(var(--background));
+  }
+  
+  .corporate-shadow {
+    box-shadow: var(--shadow-corporate);
+  }
+  
+  .elevated-shadow {
+    box-shadow: var(--shadow-elevated);
+  }
+  
+  .glow-shadow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* 3D Transform utilities */
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .rotate-y-12 {
+    transform: rotateY(12deg);
+  }
+  
+  .rotate-x-6 {
+    transform: rotateX(6deg);
+  }
+  
+  /* Professional animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 4s ease-in-out infinite alternate;
+  }
+  
+  .smooth-transition {
+    transition: var(--transition-smooth);
+  }
+  
+  .bounce-transition {
+    transition: var(--transition-bounce);
+  }
+}
+
+@layer utilities {
+  /* Animation keyframes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes glow {
+    from { box-shadow: 0 0 20px hsl(var(--secondary) / 0.2); }
+    to { box-shadow: 0 0 40px hsl(var(--secondary) / 0.4); }
+  }
+
+  /* Stagger animation utilities */
+  .stagger-1 { animation-delay: 100ms; }
+  .stagger-2 { animation-delay: 200ms; }
+  .stagger-3 { animation-delay: 300ms; }
+  .stagger-4 { animation-delay: 400ms; }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Section spacing with tech borders */
+  .section-padding {
+    @apply py-24 lg:py-40 px-6 lg:px-8;
+  }
+  
+  .section-tech-border {
+    @apply border-t border-primary/10 relative;
+  }
+  
+  .section-tech-border::before {
+    content: '';
+    @apply absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary to-transparent;
+  }
+  
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  /* Tech-oriented utilities */
+  .tech-grid-bg {
+    background-image: 
+      linear-gradient(to right, hsl(var(--primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--primary) / 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  .tech-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--secondary) / 0.2);
+  }
+  
+  .hover-scale-105:hover {
+    transform: scale(1.05);
+  }
+}
