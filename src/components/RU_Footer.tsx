@@ -33,7 +33,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-white">
-              BLOCKS
+              Blocks
             </h3>
             <p className="text-white leading-relaxed">
               Leading business development and investment consultancy firm, 

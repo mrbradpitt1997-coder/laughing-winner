@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const Header = ({ onLanguageChange }) => {
+const CH_Header = ({ onLanguageChange }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOnHero, setIsOnHero] = useState(true);
@@ -11,8 +11,6 @@ const Header = ({ onLanguageChange }) => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsScrolled(scrollPosition > 50);
-      
-      // Check if we're still on hero section (assume hero is roughly first viewport)
       setIsOnHero(scrollPosition < window.innerHeight * 0.8);
     };
     window.addEventListener("scroll", handleScroll);
@@ -21,16 +19,16 @@ const Header = ({ onLanguageChange }) => {
 
   const navigation = [
     { name: "普通话", href: "#chinese", onClick: () => onLanguageChange && onLanguageChange('CH') },
-    { name: "Русский", href: "#russian", onClick: () => onLanguageChange && onLanguageChange('RU') },
-    { name: "AI", href: "#hero" },
-    { name: "Robotics", href: "#robotics" },
-    { name: "Academy", href: "#academy" },
-    { name: "AR/VR", href: "#arvr" },
-    { name: "Automation", href: "#automation" },
-    { name: "CrowdF", href: "#crowdf" },
-    { name: "Startups", href: "#startup" },
-    { name: "Tokenomics", href: "#tokenomics" },
-    { name: "RealEstate", href: "#realestate" },
+    { name: "俄语", href: "#russian", onClick: () => onLanguageChange && onLanguageChange('RU') },
+    { name: "超级AI", href: "#hero" },
+    { name: "机器人", href: "#robotics" },
+    { name: "学院", href: "#academy" },
+    { name: "AR/VR解决方案", href: "#arvr" },
+    { name: "自动化", href: "#automation" },
+    { name: "众筹金融", href: "#crowdf" },
+    { name: "初创企业", href: "#startup" },
+    { name: "代币经济", href: "#tokenomics" },
+    { name: "房地产", href: "#realestate" },
   ];
 
   return (
@@ -46,7 +44,7 @@ const Header = ({ onLanguageChange }) => {
             <a href="/">
               <img
                 src="/Headerlogo.png"
-                alt="InvestPro Logo"
+                alt="投资专家 Logo"
                 className="h-10 w-auto"
                 style={{ maxHeight: '40px' }}
               />
@@ -121,4 +119,4 @@ const Header = ({ onLanguageChange }) => {
   );
 };
 
-export default Header;
+export default CH_Header;
